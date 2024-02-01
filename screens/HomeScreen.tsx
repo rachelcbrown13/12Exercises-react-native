@@ -9,11 +9,11 @@ function HomeScreen() {
     function someFxnToAddCount() {
         setCount(count + 1)
         return (
-            Alert.alert(`this is the count ${count}`)
+            Alert.alert(`Count: ${count + 1}`)
         )
     }
     return (
-        <>
+        <View style={styles.screen}>
             <View style={styles.container}>
                 <TouchableOpacity
                     onPress={someFxnToAddCount}
@@ -24,13 +24,17 @@ function HomeScreen() {
             </View>
             
             <View>
-                <Text>You have pressed {count} times so far</Text>
+                <Text>You have pressed {count} time(s) so far</Text>
             </View>
-        </>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+    screen: {
+        flex: 1,
+        alignItems: 'center',
+    },
     container: {
       flex: .25,
       flexDirection: 'row',

@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
-import Exercise1Screen from '../screens/CurrentExercise';
+import CurrentExercise from '../screens/CurrentExercise';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faHome, fa5 } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faList } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -33,12 +33,12 @@ function MyTabs() {
                     }}
                 />
                 <Tab.Screen
-                    name='Exercise 5'
-                    component={Exercise1Screen}
+                    name='Current Exercise'
+                    component={CurrentExercise}
                     options={{
                         tabBarIcon: () => {
                             return (
-                                <FontAwesomeIcon icon={fa5} color='white'/>
+                                <FontAwesomeIcon icon={faList} color='white'/>
                             )
                         }
                     }}

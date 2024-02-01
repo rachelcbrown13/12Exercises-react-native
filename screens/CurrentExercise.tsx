@@ -1,53 +1,38 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { View, TextInput, Text, Button, Alert, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-function CurrentExerciseScreen() {
+
+
+function CurrentExercise() {
+    const [name, setName] = useState('');
+
+    function alert() {
+        return Alert.alert(name);
+    }
+
     return (
-        <View style={styles.wholeSection}>
-            <View style={styles.ejSection}>
-                <Image source={require('../assets/EJonPlane.jpeg')} style={styles.image}/>
-                <Text style={styles.text}>EJ</Text>
-            </View>
-            <View style={styles.apollosSection}>
-                <Image source={require('../assets/Apollos.jpeg')} style={styles.image}/>
-                <Text style={styles.text}>Apollos</Text>
-            </View>
-            <View style={styles.imriSection}>
-                <Image source={require('../assets/Imri.jpeg')} style={styles.image}/>
-                <Text style={styles.text}>Imri</Text>
-            </View>
+        <View>
+            <Text>What is your name?</Text>
+            <SafeAreaView style={styles.nameForm}>
+                <TextInput style={styles.input} placeholder='First Name' onChangeText={setName}/>
+                <TextInput style={styles.input} placeholder='Last Name' onChangeText={setName}/>
+            </SafeAreaView>
+            <Button title='Say Hello!' onPress={alert}></Button>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    wholeSection: {
-        flexDirection:'row',
-        justifyContent: 'space-evenly',
-
+    nameForm: {
+        flexDirection: 'row'
     },
-    ejSection: {
-        backgroundColor: 'red',
-        justifyContent: 'center',
-    },
-    apollosSection: {
-        backgroundColor: 'blue',
-        justifyContent: 'center',
-    },
-    imriSection: {
-        backgroundColor: 'purple',
-        justifyContent: 'center',
-    },
-    text: {
-        color:'white', 
-        textAlign:'center',
-        fontSize: 24
-    },
-    image: {
-        width: 100,
-        height: 100,
-    }
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+      }
 })
 
-
-export default CurrentExerciseScreen;
+export default CurrentExercise;
